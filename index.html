@@ -326,7 +326,7 @@
     <div class="hero-meta">
       <!-- EDIT: date, time, venue -->
       <span>Saturday, 12 September 2026</span>
-      <span>11:00</span>
+      <span>10:00</span>
       <span>Maphumulo, KwaZulu-Natal</span>
     </div>
   </div>
@@ -375,7 +375,7 @@
       <h3>Date &amp; Time</h3>
       <!-- EDIT: date/time -->
       <p>Saturday, 12 September 2026</p>
-      <p>Guests welcomed from 11:00</p>
+      <p>Guests welcomed from 10:00</p>
     </div>
     <div class="detail-card">
       <h3>Venue</h3>
@@ -388,7 +388,7 @@
 
   <div class="dresscode">
     <h3 style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.18em; color:var(--indigo); font-family:'Work Sans',sans-serif; font-style:normal;">Attire</h3>
-    <p>Traditional attire is warmly encouraged — isiZulu prints, beadwork, and colour are always welcome.</p>
+    <p>Traditional attire is warmly encouraged — traditional prints, beadwork, and colour are always welcome.</p>
   </div>
 </section>
 
@@ -401,22 +401,7 @@
   <h2>RSVP</h2>
   <p class="lead">Please let us know if you'll be able to join us by 1 August 2026.</p>
 
-  <div id="inviteGate">
-    <form id="gateForm">
-      <div class="field">
-        <label for="gateFirst">Name</label>
-        <input type="text" id="gateFirst" autocomplete="given-name" required>
-      </div>
-      <div class="field">
-        <label for="gateLast">Surname</label>
-        <input type="text" id="gateLast" autocomplete="family-name" required>
-      </div>
-      <button type="submit">Continue to RSVP</button>
-      <p class="form-msg" id="gateMsg" role="status"></p>
-    </form>
-  </div>
-
-  <div class="gform-wrap" id="gformWrap" style="display:none;">
+  <div class="gform-wrap">
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7KNiCpON0yfiwVjqOlG9nTjNQ8CRltPHXOzO0dymCEm5Gfg/viewform?embedded=true" width="640" height="765" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
   </div>
 </section>
@@ -429,54 +414,7 @@
   <!-- EDIT: signing family name -->
   <p class="sign">The Ndayi Family</p>
   <p>With love and gratitude for those who will stand with us on this day.</p>
-  <p style="margin-top:10px; font-size:0.85rem; opacity:0.7;">
-    Not finding your name? Reach out to us at <!-- EDIT: contact info --><a href="mailto:youremail@example.com" style="color:inherit;">youremail@example.com</a>.
-  </p>
 </footer>
-
-<script>
-(function(){
-  // ===== EDIT: add every invited guest below, exactly as they'd naturally type their name =====
-  const INVITE_LIST = [
-    { first: 'Jane', last: 'Doe' },
-    { first: 'John', last: 'Doe' }
-    // add more guests here, e.g. { first: 'Nomvula', last: 'Ndayi' },
-  ];
-
-  function normalize(str){
-    return str.trim().toLowerCase().replace(/\s+/g, ' ');
-  }
-
-  const gateForm = document.getElementById('gateForm');
-  const gateMsg = document.getElementById('gateMsg');
-  const inviteGate = document.getElementById('inviteGate');
-  const gformWrap = document.getElementById('gformWrap');
-
-  gateForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    const first = normalize(document.getElementById('gateFirst').value);
-    const last = normalize(document.getElementById('gateLast').value);
-
-    if(!first || !last){
-      gateMsg.textContent = 'Please enter both your name and surname.';
-      gateMsg.className = 'form-msg error';
-      return;
-    }
-
-    const matched = INVITE_LIST.some(g => normalize(g.first) === first && normalize(g.last) === last);
-
-    if(matched){
-      gateMsg.textContent = '';
-      inviteGate.style.display = 'none';
-      gformWrap.style.display = '';
-      gformWrap.scrollIntoView({behavior:'smooth', block:'start'});
-    } else {
-      gateMsg.textContent = "We couldn't find that name on our guest list. Please check the spelling, or contact us directly if you believe this is a mistake.";
-      gateMsg.className = 'form-msg error';
-    }
-  });
-})();
-</script>
 
 </body>
 </html>
