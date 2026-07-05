@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umembeso — You're Invited</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ============ EDIT THESE DETAILS ============ */
+  /* Search for "EDIT:" comments throughout to personalize couple names, date, venue, etc. */
+
+  :root{
+    --ivory: #F6EFE1;
+    --ivory-deep: #EFE4CD;
+    --charcoal: #241D19;
+    --maroon: #7C1F2A;
+    --maroon-deep: #591620;
+    --gold: #BE9435;
+    --gold-soft: #D9BC7C;
+    --indigo: #203A5C;
+    --line: rgba(36,29,25,0.14);
+    --max: 780px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--charcoal);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none !important; transition:none !important;}
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    color:var(--maroon-deep);
+  }
+
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.28em;
+    font-size:0.72rem;
+    font-weight:600;
+    color:var(--indigo);
+  }
+
+  section{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:64px 28px;
+  }
+
+  /* ---- beadwork strip ---- */
+  .bead-strip{
+    width:100%;
+    height:22px;
+    display:block;
+    line-height:0;
+  }
+  .bead-strip svg{width:100%;height:100%;display:block;}
+
+  /* ---- hero ---- */
+  .hero{
+    text-align:center;
+    padding:20px 24px 0;
+    background:
+      radial-gradient(ellipse at top, rgba(190,148,53,0.10), transparent 60%),
+      repeating-linear-gradient(135deg, rgba(36,29,25,0.025) 0px, rgba(36,29,25,0.025) 2px, transparent 2px, transparent 14px);
+  }
+  .hero-inner{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:56px 20px 48px;
+    animation:riseIn 900ms ease-out both;
+  }
+  @keyframes riseIn{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .hero .eyebrow{display:block; margin-bottom:22px;}
+  .names{
+    font-size:clamp(2.6rem, 7vw, 4.6rem);
+    font-style:italic;
+    font-weight:500;
+    line-height:1.08;
+    letter-spacing:0.01em;
+  }
+  .names .amp{
+    color:var(--gold);
+    font-style:normal;
+    padding:0 0.15em;
+  }
+  .greeting{
+    max-width:520px;
+    margin:26px auto 0;
+    font-size:1.02rem;
+    color:var(--charcoal);
+    opacity:0.85;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px 28px;
+    margin-top:34px;
+    font-family:'Work Sans', sans-serif;
+    font-weight:500;
+    letter-spacing:0.03em;
+  }
+  .hero-meta span{color:var(--maroon);}
+
+  /* ---- about ---- */
+  .about{
+    text-align:center;
+  }
+  .about h2{
+    font-size:clamp(1.7rem, 4vw, 2.3rem);
+    font-style:italic;
+  }
+  .about p.lead{
+    max-width:560px;
+    margin:18px auto 0;
+    opacity:0.88;
+  }
+  .expect{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+    margin-top:48px;
+    text-align:left;
+  }
+  @media (max-width:640px){
+    .expect{grid-template-columns:1fr;}
+  }
+  .expect-item{
+    padding:24px 20px;
+    background:var(--ivory-deep);
+    border:1px solid var(--line);
+    border-radius:2px;
+  }
+  .expect-item svg{width:30px;height:30px;stroke:var(--maroon); margin-bottom:14px;}
+  .expect-item h3{
+    font-size:1.05rem;
+    font-style:italic;
+    margin-bottom:8px;
+  }
+  .expect-item p{
+    margin:0;
+    font-size:0.92rem;
+    opacity:0.82;
+  }
+
+  /* ---- details ---- */
+  .details{
+    background:var(--ivory-deep);
+  }
+  .details-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:36px;
+    margin-top:36px;
+  }
+  @media (max-width:640px){
+    .details-grid{grid-template-columns:1fr;}
+  }
+  .detail-card h3{
+    font-size:0.78rem;
+    font-style:normal;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    color:var(--indigo);
+    margin-bottom:10px;
+  }
+  .detail-card p{
+    margin:0 0 4px;
+    font-size:1.05rem;
+  }
+  .detail-card a{
+    color:var(--maroon);
+    font-weight:500;
+  }
+  .dresscode{
+    margin-top:40px;
+    padding-top:32px;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+  .dresscode p{
+    max-width:520px;
+    margin:8px auto 0;
+    opacity:0.85;
+  }
+
+  /* ---- rsvp ---- */
+  .rsvp{text-align:center;}
+  .rsvp h2{font-size:clamp(1.7rem, 4vw, 2.3rem); font-style:italic;}
+  .rsvp .lead{max-width:480px; margin:14px auto 0; opacity:0.85;}
+
+  #gateForm{
+    max-width:400px;
+    margin:36px auto 0;
+    text-align:left;
+  }
+  .field{margin-bottom:18px;}
+  label{
+    display:block;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-weight:600;
+    color:var(--indigo);
+    margin-bottom:8px;
+  }
+  input[type="text"]{
+    width:100%;
+    padding:12px 14px;
+    font-family:'Work Sans', sans-serif;
+    font-size:1rem;
+    border:1px solid var(--line);
+    border-radius:2px;
+    background:#fff;
+    color:var(--charcoal);
+  }
+  input[type="text"]:focus{
+    outline:3px solid var(--gold-soft);
+    outline-offset:1px;
+    border-color:var(--gold);
+  }
+  button[type="submit"]{
+    width:100%;
+    padding:15px;
+    margin-top:4px;
+    background:var(--maroon);
+    color:#fff;
+    border:none;
+    border-radius:2px;
+    font-family:'Work Sans', sans-serif;
+    font-size:0.92rem;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background 150ms;
+  }
+  button[type="submit"]:hover{background:var(--maroon-deep);}
+  button[type="submit"]:focus-visible{outline:3px solid var(--gold-soft); outline-offset:2px;}
+  .form-msg{
+    margin-top:14px;
+    font-size:0.9rem;
+    min-height:1.2em;
+  }
+  .form-msg.error{color:var(--maroon);}
+
+  .gform-wrap{
+    max-width:640px;
+    margin:36px auto 0;
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:#fff;
+  }
+  .gform-wrap iframe{
+    width:100%;
+    height:765px;
+    display:block;
+    border:none;
+  }
+  @media (max-width:480px){
+    .gform-wrap iframe{height:1000px;}
+  }
+
+  footer{
+    text-align:center;
+    padding:40px 24px 56px;
+  }
+  footer p{
+    margin:0;
+    font-size:0.85rem;
+    opacity:0.7;
+  }
+  footer .sign{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:var(--maroon-deep);
+    margin-bottom:10px;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="bead-strip">
+  <svg viewBox="0 0 240 24" preserveAspectRatio="none">
+    <defs>
+      <pattern id="bead1" width="60" height="24" patternUnits="userSpaceOnUse">
+        <rect width="60" height="24" fill="#F6EFE1"/>
+        <polygon points="0,24 15,0 30,24" fill="#7C1F2A"/>
+        <polygon points="30,24 45,0 60,24" fill="#BE9435"/>
+        <polygon points="15,0 30,24 45,0" fill="#203A5C"/>
+      </pattern>
+    </defs>
+    <rect width="240" height="24" fill="url(#bead1)"/>
+  </svg>
+</div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Umembeso · Traditional Wedding</span>
+    <!-- EDIT: couple's names -->
+    <h1 class="names">Samukelisiwe <span class="amp">&amp;</span> Bayanda</h1>
+    <p class="greeting">Sanibonani — with full hearts, our families invite you to celebrate as our two families are joined together.</p>
+    <div class="hero-meta">
+      <!-- EDIT: date, time, venue -->
+      <span>Saturday, 12 September 2026</span>
+      <span>11:00</span>
+      <span>Maphumulo, KwaZulu-Natal</span>
+    </div>
+  </div>
+</header>
+
+<div class="bead-strip">
+  <svg viewBox="0 0 240 24" preserveAspectRatio="none">
+    <rect width="240" height="24" fill="url(#bead1)"/>
+  </svg>
+</div>
+
+<section class="about">
+  <span class="eyebrow">About the day</span>
+  <h2>What is Umembeso?</h2>
+  <p class="lead">Umembeso is the ceremony where the groom's family formally presents gifts to the bride's family, a joyful step that honours both families and blesses the union to come. Expect vibrant colour, music, dancing, and a warm welcome for everyone who joins us.</p>
+
+  <div class="expect">
+    <div class="expect-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8Z"/><path d="M4 8l3-4h10l3 4"/><path d="M9 12h6"/></svg>
+      <h3>Gift Presentation</h3>
+      <p>The groom's family presents blankets and gifts to the bride's family, witnessed by both households.</p>
+    </div>
+    <div class="expect-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 21v-2a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2"/></svg>
+      <h3>Song &amp; Dance</h3>
+      <p>Traditional song and dance carry the celebration, with both families singing as they welcome one another.</p>
+    </div>
+    <div class="expect-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8c0 4 3 6 7 6s7-2 7-6"/></svg>
+      <h3>Feasting Together</h3>
+      <p>A shared meal follows, bringing both families and all our guests together at one table.</p>
+    </div>
+  </div>
+</section>
+
+<div class="bead-strip">
+  <svg viewBox="0 0 240 24" preserveAspectRatio="none"><rect width="240" height="24" fill="url(#bead1)"/></svg>
+</div>
+
+<section class="details">
+  <span class="eyebrow">Details</span>
+  <h2 style="font-style:italic; font-size:clamp(1.7rem, 4vw, 2.3rem); margin-top:8px;">Where &amp; When</h2>
+
+  <div class="details-grid">
+    <div class="detail-card">
+      <h3>Date &amp; Time</h3>
+      <!-- EDIT: date/time -->
+      <p>Saturday, 12 September 2026</p>
+      <p>Guests welcomed from 11:00</p>
+    </div>
+    <div class="detail-card">
+      <h3>Venue</h3>
+      <!-- EDIT: venue name, address, maps link -->
+      <p>Maphumulo</p>
+      <p>KwaZulu-Natal</p>
+      <p><a href="#" target="_blank" rel="noopener">Get directions →</a></p>
+    </div>
+  </div>
+
+  <div class="dresscode">
+    <h3 style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.18em; color:var(--indigo); font-family:'Work Sans',sans-serif; font-style:normal;">Attire</h3>
+    <p>Traditional attire is warmly encouraged — isiZulu prints, beadwork, and colour are always welcome.</p>
+  </div>
+</section>
+
+<div class="bead-strip">
+  <svg viewBox="0 0 240 24" preserveAspectRatio="none"><rect width="240" height="24" fill="url(#bead1)"/></svg>
+</div>
+
+<section class="rsvp" id="rsvp">
+  <span class="eyebrow">Kindly Respond</span>
+  <h2>RSVP</h2>
+  <p class="lead">Please let us know if you'll be able to join us by 1 August 2026.</p>
+
+  <div id="inviteGate">
+    <form id="gateForm">
+      <div class="field">
+        <label for="gateFirst">Name</label>
+        <input type="text" id="gateFirst" autocomplete="given-name" required>
+      </div>
+      <div class="field">
+        <label for="gateLast">Surname</label>
+        <input type="text" id="gateLast" autocomplete="family-name" required>
+      </div>
+      <button type="submit">Continue to RSVP</button>
+      <p class="form-msg" id="gateMsg" role="status"></p>
+    </form>
+  </div>
+
+  <div class="gform-wrap" id="gformWrap" style="display:none;">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc7KNiCpON0yfiwVjqOlG9nTjNQ8CRltPHXOzO0dymCEm5Gfg/viewform?embedded=true" width="640" height="765" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+</section>
+
+<div class="bead-strip">
+  <svg viewBox="0 0 240 24" preserveAspectRatio="none"><rect width="240" height="24" fill="url(#bead1)"/></svg>
+</div>
+
+<footer>
+  <!-- EDIT: signing family name -->
+  <p class="sign">The Ndayi Family</p>
+  <p>With love and gratitude for those who will stand with us on this day.</p>
+  <p style="margin-top:10px; font-size:0.85rem; opacity:0.7;">
+    Not finding your name? Reach out to us at <!-- EDIT: contact info --><a href="mailto:youremail@example.com" style="color:inherit;">youremail@example.com</a>.
+  </p>
+</footer>
+
+<script>
+(function(){
+  // ===== EDIT: add every invited guest below, exactly as they'd naturally type their name =====
+  const INVITE_LIST = [
+    { first: 'Jane', last: 'Doe' },
+    { first: 'John', last: 'Doe' }
+    // add more guests here, e.g. { first: 'Nomvula', last: 'Ndayi' },
+  ];
+
+  function normalize(str){
+    return str.trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  const gateForm = document.getElementById('gateForm');
+  const gateMsg = document.getElementById('gateMsg');
+  const inviteGate = document.getElementById('inviteGate');
+  const gformWrap = document.getElementById('gformWrap');
+
+  gateForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const first = normalize(document.getElementById('gateFirst').value);
+    const last = normalize(document.getElementById('gateLast').value);
+
+    if(!first || !last){
+      gateMsg.textContent = 'Please enter both your name and surname.';
+      gateMsg.className = 'form-msg error';
+      return;
+    }
+
+    const matched = INVITE_LIST.some(g => normalize(g.first) === first && normalize(g.last) === last);
+
+    if(matched){
+      gateMsg.textContent = '';
+      inviteGate.style.display = 'none';
+      gformWrap.style.display = '';
+      gformWrap.scrollIntoView({behavior:'smooth', block:'start'});
+    } else {
+      gateMsg.textContent = "We couldn't find that name on our guest list. Please check the spelling, or contact us directly if you believe this is a mistake.";
+      gateMsg.className = 'form-msg error';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
